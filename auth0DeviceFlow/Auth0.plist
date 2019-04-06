@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>rtGrantType</key>
+	<string>refresh_token</string>
+	<key>grant_type</key>
+	<string>urn:ietf:params:oauth:grant-type:device_code</string>
+	<key>ClientId</key>
+	<string>0BD9o9Dqrk8wf55buk2L5lodAnPa7RLc</string>
+	<key>Domain</key>
+	<string>ssotests.auth0.com</string>
+</dict>
+</plist>

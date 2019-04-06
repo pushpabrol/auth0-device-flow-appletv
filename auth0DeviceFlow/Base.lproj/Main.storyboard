@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="auth0DeviceFlow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOu-xh-kYq">
+                                <rect key="frame" x="776" y="113" width="278" height="86"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Play Video">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="playVideoAction:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="OPd-Zu-Mpm"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCu-EC-XeX">
+                                <rect key="frame" x="797" y="116" width="451" height="86"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Login to Play">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startLogin:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="6rG-Nd-ljt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWv-vh-Nea">
+                                <rect key="frame" x="460" y="122" width="1000" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="4np-OD-c4M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UeH-xl-2Y9">
+                                <rect key="frame" x="1302" y="113" width="303" height="86"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Delete Token">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteToken:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="ufK-hd-KQE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zOu-xh-kYq" firstAttribute="top" secondItem="wu6-TO-1qx" secondAttribute="top" constant="53" id="5v6-Rk-4JU"/>
+                            <constraint firstItem="yWv-vh-Nea" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="122" id="8WL-V5-6YK"/>
+                            <constraint firstItem="wu6-TO-1qx" firstAttribute="trailing" secondItem="oCu-EC-XeX" secondAttribute="trailing" constant="582" id="JZF-FX-v5N"/>
+                            <constraint firstItem="yWv-vh-Nea" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mj0-7T-S93"/>
+                            <constraint firstItem="zOu-xh-kYq" firstAttribute="leading" secondItem="wu6-TO-1qx" secondAttribute="leading" constant="686" id="NFA-lQ-lGk"/>
+                            <constraint firstItem="UeH-xl-2Y9" firstAttribute="leading" secondItem="zOu-xh-kYq" secondAttribute="trailing" constant="248" id="PbL-DL-biE"/>
+                            <constraint firstItem="oCu-EC-XeX" firstAttribute="top" secondItem="wu6-TO-1qx" secondAttribute="top" constant="56" id="SYi-fX-fud"/>
+                            <constraint firstItem="wu6-TO-1qx" firstAttribute="trailing" secondItem="UeH-xl-2Y9" secondAttribute="trailing" constant="225" id="Zgh-xi-iRb"/>
+                            <constraint firstItem="UeH-xl-2Y9" firstAttribute="top" secondItem="wu6-TO-1qx" secondAttribute="top" constant="53" id="hHH-hH-zpx"/>
+                            <constraint firstItem="yWv-vh-Nea" firstAttribute="leading" secondItem="wu6-TO-1qx" secondAttribute="leading" constant="370" id="ovJ-3s-C46"/>
+                            <constraint firstItem="oCu-EC-XeX" firstAttribute="leading" secondItem="wu6-TO-1qx" secondAttribute="leading" constant="707" id="uws-Ta-A4t"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wu6-TO-1qx"/>
+                    </view>
+                    <connections>
+                        <outlet property="deleteTokenButton" destination="UeH-xl-2Y9" id="aMX-5e-jFP"/>
+                        <outlet property="loginButton" destination="oCu-EC-XeX" id="xI1-sX-LcN"/>
+                        <outlet property="playButton" destination="zOu-xh-kYq" id="giT-K7-n5i"/>
+                        <outlet property="titleLabel" destination="yWv-vh-Nea" id="TUn-Pw-AfS"/>
+                        <outlet property="urlAndCode" destination="yWv-vh-Nea" id="15L-PW-IVS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

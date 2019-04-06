@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06BE9096B5F566B01D15D0BD /* Pods_auth0DeviceFlow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF679EA266C125FE80986A3 /* Pods_auth0DeviceFlow.framework */; };
+		11DE1122212C4390008951AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DE1121212C4390008951AA /* AppDelegate.swift */; };
+		11DE1124212C4390008951AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DE1123212C4390008951AA /* ViewController.swift */; };
+		11DE1127212C4390008951AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11DE1125212C4390008951AA /* Main.storyboard */; };
+		11DE1129212C4393008951AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11DE1128212C4393008951AA /* Assets.xcassets */; };
+		11DE1131212D0030008951AA /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11DE1130212D0030008951AA /* Auth0.plist */; };
+		11DE1137212E59B3008951AA /* Auth0_TV.png in Resources */ = {isa = PBXBuildFile; fileRef = 11DE1136212E59B2008951AA /* Auth0_TV.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0EF679EA266C125FE80986A3 /* Pods_auth0DeviceFlow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_auth0DeviceFlow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11DE111E212C4390008951AA /* auth0DeviceFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = auth0DeviceFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		11DE1121212C4390008951AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		11DE1123212C4390008951AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		11DE1126212C4390008951AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		11DE1128212C4393008951AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		11DE112A212C4393008951AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11DE1130212D0030008951AA /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		11DE1136212E59B2008951AA /* Auth0_TV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Auth0_TV.png; path = ../../../Downloads/Auth0_TV.png; sourceTree = "<group>"; };
+		2E03A36A51FD54757E3CFE9B /* Pods-auth0DeviceFlow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-auth0DeviceFlow.release.xcconfig"; path = "Pods/Target Support Files/Pods-auth0DeviceFlow/Pods-auth0DeviceFlow.release.xcconfig"; sourceTree = "<group>"; };
+		59BB40A82629E78F62702B31 /* Pods-auth0DeviceFlow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-auth0DeviceFlow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-auth0DeviceFlow/Pods-auth0DeviceFlow.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		11DE111B212C4390008951AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06BE9096B5F566B01D15D0BD /* Pods_auth0DeviceFlow.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11DE1115212C4390008951AA = {
+			isa = PBXGroup;
+			children = (
+				11DE1120212C4390008951AA /* auth0DeviceFlow */,
+				11DE111F212C4390008951AA /* Products */,
+				724A485F29993CC07545AE72 /* Pods */,
+				FC17ADDA12380A7571AABFD5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		11DE111F212C4390008951AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				11DE111E212C4390008951AA /* auth0DeviceFlow.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		11DE1120212C4390008951AA /* auth0DeviceFlow */ = {
+			isa = PBXGroup;
+			children = (
+				11DE1136212E59B2008951AA /* Auth0_TV.png */,
+				11DE1121212C4390008951AA /* AppDelegate.swift */,
+				11DE1123212C4390008951AA /* ViewController.swift */,
+				11DE1125212C4390008951AA /* Main.storyboard */,
+				11DE1128212C4393008951AA /* Assets.xcassets */,
+				11DE112A212C4393008951AA /* Info.plist */,
+				11DE1130212D0030008951AA /* Auth0.plist */,
+			);
+			path = auth0DeviceFlow;
+			sourceTree = "<group>";
+		};
+		724A485F29993CC07545AE72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59BB40A82629E78F62702B31 /* Pods-auth0DeviceFlow.debug.xcconfig */,
+				2E03A36A51FD54757E3CFE9B /* Pods-auth0DeviceFlow.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FC17ADDA12380A7571AABFD5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EF679EA266C125FE80986A3 /* Pods_auth0DeviceFlow.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11DE111D212C4390008951AA /* auth0DeviceFlow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11DE112D212C4393008951AA /* Build configuration list for PBXNativeTarget "auth0DeviceFlow" */;
+			buildPhases = (
+				6BB0B6B63573AC4471F505EE /* [CP] Check Pods Manifest.lock */,
+				11DE111A212C4390008951AA /* Sources */,
+				11DE111B212C4390008951AA /* Frameworks */,
+				11DE111C212C4390008951AA /* Resources */,
+				4DF9F358964C946018B5A383 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = auth0DeviceFlow;
+			productName = auth0DeviceFlow;
+			productReference = 11DE111E212C4390008951AA /* auth0DeviceFlow.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		11DE1116212C4390008951AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Pushp Abrol";
+				TargetAttributes = {
+					11DE111D212C4390008951AA = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 11DE1119212C4390008951AA /* Build configuration list for PBXProject "auth0DeviceFlow" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 11DE1115212C4390008951AA;
+			productRefGroup = 11DE111F212C4390008951AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				11DE111D212C4390008951AA /* auth0DeviceFlow */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		11DE111C212C4390008951AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11DE1129212C4393008951AA /* Assets.xcassets in Resources */,
+				11DE1131212D0030008951AA /* Auth0.plist in Resources */,
+				11DE1137212E59B3008951AA /* Auth0_TV.png in Resources */,
+				11DE1127212C4390008951AA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4DF9F358964C946018B5A383 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-auth0DeviceFlow/Pods-auth0DeviceFlow-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-auth0DeviceFlow/Pods-auth0DeviceFlow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BB0B6B63573AC4471F505EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-auth0DeviceFlow-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		11DE111A212C4390008951AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11DE1124212C4390008951AA /* ViewController.swift in Sources */,
+				11DE1122212C4390008951AA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		11DE1125212C4390008951AA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11DE1126212C4390008951AA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		11DE112B212C4393008951AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		11DE112C212C4393008951AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		11DE112E212C4393008951AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59BB40A82629E78F62702B31 /* Pods-auth0DeviceFlow.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R82LKF5W93;
+				INFOPLIST_FILE = auth0DeviceFlow/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.auth0DeviceFlow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		11DE112F212C4393008951AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E03A36A51FD54757E3CFE9B /* Pods-auth0DeviceFlow.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R82LKF5W93;
+				INFOPLIST_FILE = auth0DeviceFlow/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.auth0DeviceFlow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11DE1119212C4390008951AA /* Build configuration list for PBXProject "auth0DeviceFlow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11DE112B212C4393008951AA /* Debug */,
+				11DE112C212C4393008951AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11DE112D212C4393008951AA /* Build configuration list for PBXNativeTarget "auth0DeviceFlow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11DE112E212C4393008951AA /* Debug */,
+				11DE112F212C4393008951AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 11DE1116212C4390008951AA /* Project object */;
+}
