@@ -18,42 +18,48 @@ class ViewController: UIViewController {
     @IBAction func deleteToken(_ sender: UIButton) {
         
         UserDefaults.standard.removeObject(forKey: "access_token")
+        UserDefaults.standard.removeObject(forKey: "refresh_token")
         self.setLoggedOutState()
     }
+    
+    func showAlert(title : String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+        {
+            (result : UIAlertAction) -> Void in
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func playVideoAction(_ sender: UIButton) {
         
         self.checkToken { success in
-            if(success) {
-                guard let url = URL(string: "https://embed-ssl.wistia.com/deliveries/129e3bcb7f75083d6a0cb7213b0f2eefeae64680/file.mp4") else {
-                    return
-                }
+            
+            guard success == true else {
                 
-                // Create an AVPlayer, passing it the HTTP Live Streaming URL.
-                let player = AVPlayer(url: url)
-                
-                // Create a new AVPlayerViewController and pass it a reference to the player.
-                let controller = AVPlayerViewController()
-                controller.player = player
-                
-                // Modally present the player and call the player's play() method when complete.
-                self.present(controller, animated: true) {
-                    player.play()
-                }
-            }
-            else {
-                
-                let alertController = UIAlertController(title: "Error", message: "Expired or invalid token!", preferredStyle: UIAlertControllerStyle.alert)
-                
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-                {
-                    (result : UIAlertAction) -> Void in
-                }
-                alertController.addAction(okAction)
-                self.present(alertController, animated: true, completion: nil)
+                self.showAlert(title: "Error", message: "Expired or invalid token!")
                 self.setLoggedOutState()
                 return
             }
             
+            guard let url = URL(string: "https://embed-ssl.wistia.com/deliveries/129e3bcb7f75083d6a0cb7213b0f2eefeae64680/file.mp4") else {
+                return
+            }
+            
+            // Create an AVPlayer, passing it the HTTP Live Streaming URL.
+            let player = AVPlayer(url: url)
+            
+            // Create a new AVPlayerViewController and pass it a reference to the player.
+            let controller = AVPlayerViewController()
+            
+            controller.player = player
+            
+            // Modally present the player and call the player's play() method when complete.
+            self.present(controller, animated: true) {
+                player.play()
+            }
             
         }
         
@@ -75,49 +81,31 @@ class ViewController: UIViewController {
             json,err in
             
             guard err == nil else {
-                let alertController = UIAlertController(title: "Error", message: err, preferredStyle: UIAlertControllerStyle.alert)
+                self.showAlert(title: "Error", message: err!)
                 
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-                {
-                    (result : UIAlertAction) -> Void in
-                    
-                }
-                alertController.addAction(okAction)
-                self.present(alertController, animated: true, completion: nil)
                 self.setLoggedOutState()
                 return
                 
             }
-            
-            if((json?["error"]) != nil)
-            {
-                let alertController = UIAlertController(title: "Error", message: json?["error_description"] as? String, preferredStyle: UIAlertControllerStyle.alert)
+            guard json?["error"] == nil else {
                 
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-                {
-                    (result : UIAlertAction) -> Void in
-                    
-                }
-                alertController.addAction(okAction)
-                self.present(alertController, animated: true, completion: nil)
+                self.showAlert(title: "Error", message: (json?["error_description"] as? String)!)
                 self.setLoggedOutState()
-                
+                return
             }
-            else
-            {
+            
+            self.urlAndCode.text = "Sign In \n Get better video recommendations, watch your playlists and authsome videos. \n On your phone tablet or computer, go to \n ".appending(json?["verification_uri"] as! String).appending("\n and enter \n ").appending(json?["user_code"] as! String)
+            var interval = json?["interval"] as! NSNumber;
+            let interValvalue = interval.intValue + 1
+            interval = interValvalue as NSNumber
+            let t = TimeInterval.init(truncating: interval)
+            let validFor = json?["expires_in"] as! Int
+            self.countDown = Timer.scheduledTimer(timeInterval: TimeInterval(validFor), target: self, selector: #selector(self.onTimerFires), userInfo: nil, repeats: true)
+            self.timer = self.setInterval(interval: t, block: { () -> Void in
+                self.checkDeviceVerification(device_code: json?["device_code"] as! String)
                 
-                self.urlAndCode.text = "Sign In \n Get better video recommendations, watch your playlists and authsome videos. \n On your phone tablet or computer, go to \n ".appending(json?["verification_uri"] as! String).appending("\n and enter \n ").appending(json?["user_code"] as! String)
-                var interval = json?["interval"] as! NSNumber;
-                let interValvalue = interval.intValue + 1
-                interval = interValvalue as NSNumber
-                let t = TimeInterval.init(truncating: interval)
-                let validFor = json?["expires_in"] as! Int
-                self.countDown = Timer.scheduledTimer(timeInterval: TimeInterval(validFor), target: self, selector: #selector(self.onTimerFires), userInfo: nil, repeats: true)
-                self.timer = self.setInterval(interval: t, block: { () -> Void in
-                    self.checkDeviceVerification(device_code: json?["device_code"] as! String)
-                    
-                })
-            }
+            })
+            
             
         })
     }
@@ -136,7 +124,7 @@ class ViewController: UIViewController {
                 // make sure we got JSON and it's a dictionary
                 guard let json = response.result.value as? [String: AnyObject] else {
                     print("didn't get response yet!")
-                    completion(nil, nil)
+                    completion(nil, "Response is not JSON!")
                     return
                 }
                 
@@ -188,29 +176,28 @@ class ViewController: UIViewController {
         self.loginButton.isHidden = true
         
         self.checkToken { success in
-            if(success){
-                self.setLoggedInState()
-                self.playButton.sendAction(#selector(ViewController.playVideoAction), to: nil, for: nil)
-            }
-            else{
+            
+            guard success == true else {
+                
+                guard UserDefaults.standard.object(forKey: "refresh_token") != nil else {
+                    
+                    self.showAlert(title: "Error", message: "Token Expired, sign in again!")
+                    UserDefaults.standard.removeObject(forKey: "access_token")
+                    UserDefaults.standard.removeObject(forKey: "refresh_token")
+                    self.setLoggedOutState()
+                    return
+                }
+                
                 self.getResponseUsingRefreshToken(refresh_token: UserDefaults.standard.object(forKey: "refresh_token") as! String, completion: {
                     responseJson in
                     guard responseJson != nil && responseJson!["error"] == nil else {
                         
-                        let alertController = UIAlertController(title: "Error", message: "Token Expired, sign in again!", preferredStyle: UIAlertControllerStyle.alert)
+                        self.showAlert(title: "Error", message: "Your offline access token expired too, sign in again!")
                         
-                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-                        {
-                            (result : UIAlertAction) -> Void in
-                            
-                        }
                         UserDefaults.standard.removeObject(forKey: "access_token")
                         UserDefaults.standard.removeObject(forKey: "refresh_token")
-                        alertController.addAction(okAction)
-                        self.present(alertController, animated: true, completion: nil)
-                        self.loginButton.isHidden = false
-                        self.playButton.isHidden = true
-                        self.deleteTokenButton.isHidden = true
+                        
+                        self.setLoggedOutState()
                         
                         return
                     }
@@ -224,9 +211,15 @@ class ViewController: UIViewController {
                     
                 })
                 return
+                
             }
+            
+            self.setLoggedInState()
+            self.playButton.sendAction(#selector(ViewController.playVideoAction), to: nil, for: nil)
+            
+            
         }
-  
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -311,15 +304,8 @@ class ViewController: UIViewController {
                     }
                     else
                     {
-                        let alertController = UIAlertController(title: "Error", message: response.error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                        self.showAlert(title: "Error", message: (response.error?.localizedDescription)!)
                         
-                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-                        {
-                            (result : UIAlertAction) -> Void in
-                            
-                        }
-                        alertController.addAction(okAction)
-                        self.present(alertController, animated: true, completion: nil)
                     }
                     return
                 }
@@ -335,17 +321,10 @@ class ViewController: UIViewController {
                     print(json["error_description"] as? String ?? "");
                     
                     if(json["error"] as? String != "authorization_pending"){
-                        let alertController = UIAlertController(title: "Error", message: response.error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                        
-                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-                        {
-                            (result : UIAlertAction) -> Void in
-                            
-                        }
-                        alertController.addAction(okAction)
-                        self.present(alertController, animated: true, completion: nil)
                         self.timer.invalidate()
                         self.countDown.invalidate()
+                        self.showAlert(title: "Error", message: (response.error?.localizedDescription)!)
+                        
                         self.urlAndCode.text = "Error while activating device. Please try again"
                     }
                     
