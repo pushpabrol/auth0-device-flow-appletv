@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "auth0DeviceFlow/ViewController.swift"
-            timestampString = "576602340.054543"
+            timestampString = "576607650.261176"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "auth0DeviceFlow/ViewController.swift"
-            timestampString = "576602340.05611"
+            timestampString = "576607650.262965"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
@@ -38,49 +38,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "auth0DeviceFlow/ViewController.swift"
-            timestampString = "576602340.056404"
+            timestampString = "576607650.263366"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
             landmarkName = "checkDeviceVerification(device_code:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in auth0DeviceFlow.ViewController.checkDeviceVerification(device_code: Swift.String) -&gt; ()"
-                  moduleName = "auth0DeviceFlow"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pushpabrol/tvOs/auth0DeviceFlow/auth0DeviceFlow/ViewController.swift"
-                  timestampString = "576602340.579053"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "290"
-                  endingLineNumber = "290"
-                  offsetFromSymbolStart = "7067">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in auth0DeviceFlow.ViewController.checkDeviceVerification(device_code: Swift.String) -&gt; ()"
-                  moduleName = "auth0DeviceFlow"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pushpabrol/tvOs/auth0DeviceFlow/auth0DeviceFlow/ViewController.swift"
-                  timestampString = "576602340.582193"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "290"
-                  endingLineNumber = "290"
-                  offsetFromSymbolStart = "7536">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "auth0DeviceFlow/ViewController.swift"
-            timestampString = "576602340.056643"
+            timestampString = "576607650.263726"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "checkDeviceVerification(device_code:)"
             landmarkType = "7">
          </BreakpointContent>

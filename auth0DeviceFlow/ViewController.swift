@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "refresh_token")
         self.setLoggedOutState()
     }
+    @IBOutlet weak var qrCodeImage: UIImageView!
     
     func showAlert(title : String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -92,7 +93,8 @@ class ViewController: UIViewController {
                 return
             }
             
-            self.urlAndCode.text = "Sign In \n Get better video recommendations, watch your playlists and authsome videos. \n On your phone tablet or computer, go to \n ".appending(json?["verification_uri"] as! String).appending("\n and enter \n ").appending(json?["user_code"] as! String)
+            self.urlAndCode.text = "Sign In \n Get better video recommendations, watch your playlists and authsome videos. \n On your phone tablet or computer, go to \n ".appending(json?["verification_uri"] as! String).appending("\n and enter \n ").appending(json?["user_code"] as! String).appending("\n or scan QR code below.")
+            self.qrCodeImage.image = self.generateQRCode(from: json?["verification_uri_complete"] as! String)
             var interval = json?["interval"] as! NSNumber;
             let interValvalue = interval.intValue + 1
             interval = interValvalue as NSNumber
@@ -135,6 +137,7 @@ class ViewController: UIViewController {
         self.urlAndCode.text = "Timed out waiting for activation"
         self.loginButton.isHidden = false
         self.deleteTokenButton.isHidden = true
+        self.qrCodeImage.image = nil
         
     }
     
@@ -143,6 +146,7 @@ class ViewController: UIViewController {
         self.loginButton.isHidden = true
         self.playButton.isSelected = true
         self.deleteTokenButton.isHidden = false
+        self.qrCodeImage.image = nil
         
     }
     
@@ -153,7 +157,23 @@ class ViewController: UIViewController {
         self.loginButton.isSelected = true
         self.deleteTokenButton.isHidden = true
         self.urlAndCode.text = ""
+        self.qrCodeImage.image = nil
         
+    }
+    
+    func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+        
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 10, y: 10)
+            
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+        
+        return nil
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -209,7 +229,6 @@ class ViewController: UIViewController {
                     }
                     self.setLoggedInState()
                     self.playButton.sendAction(#selector(ViewController.playVideoAction), to: nil, for: nil)
-                    
                 })
                 return
                 
@@ -218,7 +237,7 @@ class ViewController: UIViewController {
             self.setLoggedInState()
             self.playButton.sendAction(#selector(ViewController.playVideoAction), to: nil, for: nil)
         }
-     }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -308,7 +327,6 @@ class ViewController: UIViewController {
                         self.urlAndCode.text = "Error while activating device. Please try again"
                     }
                     return
-                    
                 }
                 
                 for (key, value) in json {
