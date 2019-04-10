@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "auth0DeviceFlow/ViewController.swift"
-            timestampString = "576550542.308228"
+            timestampString = "576602340.054543"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "startLogin(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,12 +26,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "auth0DeviceFlow/ViewController.swift"
-            timestampString = "576550542.308877"
+            timestampString = "576602340.05611"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "startLogin(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "auth0DeviceFlow/ViewController.swift"
+            timestampString = "576602340.056404"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "checkDeviceVerification(device_code:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in auth0DeviceFlow.ViewController.checkDeviceVerification(device_code: Swift.String) -&gt; ()"
+                  moduleName = "auth0DeviceFlow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pushpabrol/tvOs/auth0DeviceFlow/auth0DeviceFlow/ViewController.swift"
+                  timestampString = "576602340.579053"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "290"
+                  endingLineNumber = "290"
+                  offsetFromSymbolStart = "7067">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in auth0DeviceFlow.ViewController.checkDeviceVerification(device_code: Swift.String) -&gt; ()"
+                  moduleName = "auth0DeviceFlow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pushpabrol/tvOs/auth0DeviceFlow/auth0DeviceFlow/ViewController.swift"
+                  timestampString = "576602340.582193"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "290"
+                  endingLineNumber = "290"
+                  offsetFromSymbolStart = "7536">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "auth0DeviceFlow/ViewController.swift"
+            timestampString = "576602340.056643"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "checkDeviceVerification(device_code:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

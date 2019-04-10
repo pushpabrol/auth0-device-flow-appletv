@@ -60,11 +60,9 @@ class ViewController: UIViewController {
             self.present(controller, animated: true) {
                 player.play()
             }
-            
         }
-        
-        
     }
+    
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var urlAndCode: UILabel!
     var timer:Timer!
@@ -103,10 +101,7 @@ class ViewController: UIViewController {
             self.countDown = Timer.scheduledTimer(timeInterval: TimeInterval(validFor), target: self, selector: #selector(self.onTimerFires), userInfo: nil, repeats: true)
             self.timer = self.setInterval(interval: t, block: { () -> Void in
                 self.checkDeviceVerification(device_code: json?["device_code"] as! String)
-                
             })
-            
-            
         })
     }
     
@@ -127,13 +122,9 @@ class ViewController: UIViewController {
                     completion(nil, "Response is not JSON!")
                     return
                 }
-                
                 completion(json, nil)
                 return
-                
         }
-        
-        
     }
     
     @objc func onTimerFires()
@@ -189,7 +180,17 @@ class ViewController: UIViewController {
                 }
                 
                 self.getResponseUsingRefreshToken(refresh_token: UserDefaults.standard.object(forKey: "refresh_token") as! String, completion: {
-                    responseJson in
+                    responseJson, errMessage in
+                    
+                    guard errMessage == nil else {
+                        self.showAlert(title: "Error", message: errMessage!)
+                        UserDefaults.standard.removeObject(forKey: "access_token")
+                        UserDefaults.standard.removeObject(forKey: "refresh_token")
+                        self.setLoggedOutState()
+                        return
+                        
+                    }
+                    
                     guard responseJson != nil && responseJson!["error"] == nil else {
                         
                         self.showAlert(title: "Error", message: "Your offline access token expired too, sign in again!")
@@ -216,11 +217,8 @@ class ViewController: UIViewController {
             
             self.setLoggedInState()
             self.playButton.sendAction(#selector(ViewController.playVideoAction), to: nil, for: nil)
-            
-            
         }
-        
-    }
+     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -235,32 +233,23 @@ class ViewController: UIViewController {
         return Timer.scheduledTimer(timeInterval: interval, target: BlockOperation(block: block), selector: #selector(Operation.main), userInfo: nil, repeats: true)
     }
     
-    func getResponseUsingRefreshToken(refresh_token:String, completion: @escaping ([String: AnyObject]?) -> Void){
+    func getResponseUsingRefreshToken(refresh_token:String, completion: @escaping ([String: AnyObject]?, String?) -> Void){
         let oAuthEndpoint: String = "https://".appending(self.Domain!).appending("/oauth/token");
         
         let authRequest = ["grant_type":self.RTGrantType,"refresh_token": refresh_token, "client_id":self.ClientId] as! Dictionary<String,String>
         Alamofire.request(oAuthEndpoint , method: .post, parameters: authRequest, encoding: JSONEncoding.default)
             .responseJSON { response in
                 guard response.error == nil else {
-                    if(response.error?.localizedDescription.contains("input data was nil"))!
-                    {
-                        completion(nil)
-                        return
-                    }
-                    else
-                    {
-                        completion(nil)
-                    }
+                    completion(nil,(response.error?.localizedDescription)!)
                     return
                 }
                 // make sure we got JSON and it's a dictionary
                 guard let json = response.result.value as? [String: AnyObject] else {
                     print("didn't get response yet!")
-                    completion(nil)
+                    completion(nil,(response.error?.localizedDescription)!)
                     return
                 }
-                
-                completion(json)
+                completion(json, nil)
                 return
         }
     }
@@ -298,15 +287,7 @@ class ViewController: UIViewController {
         Alamofire.request(oAuthEndpoint , method: .post, parameters: authRequest, encoding: JSONEncoding.default)
             .responseJSON { response in
                 guard response.error == nil else {
-                    if(response.error?.localizedDescription.contains("input data was nil"))!
-                    {
-                        
-                    }
-                    else
-                    {
-                        self.showAlert(title: "Error", message: (response.error?.localizedDescription)!)
-                        
-                    }
+                    self.showAlert(title: "Error", message: (response.error?.localizedDescription)!)
                     return
                 }
                 
@@ -316,8 +297,7 @@ class ViewController: UIViewController {
                     return
                 }
                 
-                if((json["error"]) != nil)
-                {
+                guard json["error"] == nil else {
                     print(json["error_description"] as? String ?? "");
                     
                     if(json["error"] as? String != "authorization_pending"){
@@ -327,22 +307,22 @@ class ViewController: UIViewController {
                         
                         self.urlAndCode.text = "Error while activating device. Please try again"
                     }
+                    return
                     
                 }
-                else
-                {
-                    for (key, value) in json {
-                        print("key \(key) value2 \(value)")
-                        UserDefaults.standard.set(value as? String, forKey: key)
-                    }
-                    
-                    self.urlAndCode.text = "Device Activated"
-                    self.timer.invalidate();
-                    self.countDown.invalidate()
-                    self.setLoggedInState()
-                    self.playButton.sendAction(#selector(ViewController.playVideoAction), to: nil, for: nil)
-                    
+                
+                for (key, value) in json {
+                    print("key \(key) value2 \(value)")
+                    UserDefaults.standard.set(value as? String, forKey: key)
                 }
+                
+                self.urlAndCode.text = "Device Activated"
+                self.timer.invalidate();
+                self.countDown.invalidate()
+                self.setLoggedInState()
+                self.playButton.sendAction(#selector(ViewController.playVideoAction), to: nil, for: nil)
+                
+                
         }
     }
     
